@@ -3,15 +3,16 @@ from django.http import HttpResponse, HttpResponseRedirect
 import json
 import os
 import re
+import simplejson
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def index(request, course_id):
     course_data = json.loads(open(os.path.join(BASE_DIR, 'courses.json'),'r').read())
-    course_name = course_data[course_id]['name']
-    course_description = course_data[course_id]['description']
-    course_grades = str(json.dumps(course_data[course_id]['grades']))
-    return HttpResponse(render(request, 'course_page.html', context = {'course_id': course_id, 'course_name': course_name, 'grades': course_grades,'course_description':course_description}))
+    course = course_data[course_id]
+    course['grades'] = str(json.dumps(course['grades']))
+    course['prereq'] = simplejson.dumps(course['prereq'])
+    return HttpResponse(render(request, 'course_page.html', context = {'course': course}))
 
 def search(request):
     if request.method == 'POST':
