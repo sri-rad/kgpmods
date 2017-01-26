@@ -4,7 +4,6 @@
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
-
 <main class="demo-main mdl-layout__content">
 <div class="demo-container mdl-grid">
 <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
@@ -16,7 +15,19 @@
   <i class="material-icons">favorite</i>
   <i class="material-icons">favorite</i>
   <i class="material-icons">favorite</i>
-  <div align="justify"><b>Description</b><br>{{course.description}}</h6></div><br><div><b>Credits</b><br>{{course.credits}}</div>
+  <div align="justify"><b>Syllabus</b><br>{{course.syllabus}}</h6></div><br><div><b>Credits</b><br>{{course.credits}}</div><br><div><b>Pre-Requisites</b><br><div id="prereq"></div>
+</div>
+<script type="text/javascript">
+  var prereq = {{course.prereq|safe}}
+  var mydiv = document.getElementById("prereq");
+  for (code in prereq) {
+    var aTag = document.createElement('a');
+    aTag.setAttribute('href',"/courses/"+prereq[code]);
+    aTag.setAttribute('class','prereq')
+    aTag.innerHTML = prereq[code];
+    mydiv.appendChild(aTag);
+  };
+</script>
 </div>
 <div class="demo-content mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--5-col">
 <h4>GRADE DISTRIBUTION</h4>
@@ -85,7 +96,6 @@ var svg = d3.select(".gGraph").append("svg")
           "translate(" + margin.left + "," + margin.top + ")");
 
   var grades = {{course.grades|safe}}
-
   // scale the range of the data
 	diff = ["EX","A","B","C","D","F"]
   x.domain(diff);

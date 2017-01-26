@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 import json
 import os
 import re
+import simplejson
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -10,6 +11,7 @@ def index(request, course_id):
     course_data = json.loads(open(os.path.join(BASE_DIR, 'courses.json'),'r').read())
     course = course_data[course_id]
     course['grades'] = str(json.dumps(course['grades']))
+    course['prereq'] = simplejson.dumps(course['prereq'])
     return HttpResponse(render(request, 'course_page.html', context = {'course': course}))
 
 def search(request):

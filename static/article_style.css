@@ -95,3 +95,18 @@
   margin-left: 0.1em;
   vertical-align: baseline;
 }
+
+.prereq {
+  display: inline;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+  background-color: grey;
+  border-radius: 0.25em;
+  text-align: center;
+  margin-left: 0.1em;
+  font-size: 150%;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  color: white;
+  vertical-align: text-top;
+}
