@@ -81,3 +81,17 @@
   stroke: #000;
   shape-rendering: crispEdges;
 }
+
+.stype {
+  display: inline;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+  background-color: grey;
+  color: white;
+  border-radius: 0.25em;
+  float: right;
+  font-size: 50%;
+  text-align: center;
+  margin-left: 0.1em;
+  vertical-align: baseline;
+}
