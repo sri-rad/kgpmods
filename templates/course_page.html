@@ -87,7 +87,7 @@ var svg = d3.select(".gGraph").append("svg")
   var grades = {{grades|safe}}
 
   // scale the range of the data
-	diff = ["EX","A","B","C","D","F"]
+	diff = ["EX","A","B","C","D","P","F"]
   x.domain(diff);
   y.domain([0, d3.max(diff, function(d) { console.log(grades[d]); return grades[d]; })]);
 

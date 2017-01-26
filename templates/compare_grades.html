@@ -56,7 +56,7 @@ var svg = d3.select(".gGraph1").append("svg")
   var grades = {{grades1|safe}}
 
   // scale the range of the data
-	diff = ["EX","A","B","C","D","F"]
+  diff = ["EX","A","B","C","D","P","F"]
   x.domain(diff);
   y.domain([0, d3.max(diff, function(d) { console.log(grades[d]); return grades[d]; })]);
 
@@ -90,7 +90,6 @@ var svg = d3.select(".gGraph1").append("svg")
   grades = {{grades2|safe}}
 
   // scale the range of the data
-	diff = ["EX","A","B","C","D","F"]
   x.domain(diff);
   y.domain([0, d3.max(diff, function(d) { console.log(grades[d]); return grades[d]; })]);
 
