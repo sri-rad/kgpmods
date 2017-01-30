@@ -44,11 +44,7 @@
     .append("g")
     .attr("transform",
       "translate(" + margin.left + "," + margin.top + ")");
-  var grades = {
-    {
-      grades1 | safe
-    }
-  }
+  var grades = {{grades1 | safe}}
   // scale the range of the data
   diff = ["EX", "A", "B", "C", "D", "F"]
   x.domain(diff);
@@ -85,11 +81,7 @@
     .append("g")
     .attr("transform",
       "translate(" + margin.left + "," + margin.top + ")");
-  grades = {
-    {
-      grades2 | safe
-    }
-  }
+  grades = {{grades1 | safe}}
   // scale the range of the data
   diff = ["EX", "A", "B", "C", "D", "F"]
   x.domain(diff);
