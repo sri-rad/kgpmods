@@ -101,11 +101,7 @@
     .append("g")
     .attr("transform",
       "translate(" + margin.left + "," + margin.top + ")");
-  var grades = {
-    {
-      course.grades | safe
-    }
-  }
+  var grades = {{course.grades | safe}}
   // scale the range of the data
   diff = ["EX", "A", "B", "C", "D", "F"]
   x.domain(diff);
