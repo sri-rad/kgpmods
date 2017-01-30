@@ -1,129 +1,140 @@
 {%extends "basic_header.html"%}
-
 {%block pagebody%}
-
 <script src="http://d3js.org/d3.v3.min.js"></script>
-
 <main class="demo-main mdl-layout__content">
-
-<div class="demo-container mdl-grid">
-<div style="display:flex;justify-content:center;align-items:center;" class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"><a href={{course.id}}/edit id = "edit" class="button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-  <i class="material-icons">edit</i>
-</a></div>
-<div class="demo-content mdl-color--white  content mdl-color-text--grey-800 mdl-cell mdl-cell--5-col">
-
-  <h3>{{course.id}}<span class="stype">Spring</span><span class="stype">Autumn</span></h3>
-  <h4> {{course.name}}</h4>
-  <i class="material-icons red">favorite</i>
-  <i class="material-icons red">favorite</i>
-  <i class="material-icons">favorite</i>
-  <i class="material-icons">favorite</i>
-  <i class="material-icons">favorite</i>
-  <div align="justify"><b>Syllabus</b><br>{{course.syllabus}}</h6></div><br><div><b>Credits</b><br>{{course.credits}}</div><br><div><b>Pre-Requisites</b><br><div id="prereq"></div>
-</div>
-<script type="text/javascript">
-  var prereq = {{course.prereq|safe}}
-  var mydiv = document.getElementById("prereq");
-  for (code in prereq) {
-    var aTag = document.createElement('a');
-    aTag.setAttribute('href',"/courses/"+prereq[code]);
-    aTag.setAttribute('class','prereq')
-    aTag.innerHTML = prereq[code];
-    mydiv.appendChild(aTag);
-  };
-</script>
-</div>
-<div class="demo-content mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--5-col">
-<h4>GRADE DISTRIBUTION</h4>
-<a href="/courses/compare">COMPARE</a>
-<div class="gGraph"></div>
-</div>
-<div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-
-<div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-<div class="demo-content mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--10-col">
-<h4> Course Reviews</h4>
-<h5>Arun Patro, Dual, EE'18</h5>
-<i class="material-icons red">favorite</i>
-<i class="material-icons red">favorite</i>
-<i class="material-icons">favorite</i>
-<i class="material-icons">favorite</i>
-<i class="material-icons">favorite</i>
-<p>While visibly they were at a distance, you need to understand that there was an active underflow between</p>
-<span layout="row"><hr flex/></span>
-<h5>Srihari Radhakrishna, Dual, EE'18</h5>
-<i class="material-icons red">favorite</i>
-<i class="material-icons red">favorite</i>
-<i class="material-icons red">favorite</i>
-<i class="material-icons">favorite</i>
-<i class="material-icons">favorite</i>
-<span layout="row"><hr flex/></span>
-<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-Add Review
-</button>
-</div>
-<div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-
-</div>
+  <div class="demo-container mdl-grid">
+    <div style="display:flex;justify-content:center;align-items:center;" class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone">
+      <a href={{course.id}}/edit id="edit" class="button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+        <i class="material-icons">edit</i>
+      </a>
+    </div>
+    <div class="demo-content mdl-color--white  content mdl-color-text--grey-800 mdl-cell mdl-cell--5-col">
+      <h3>{{course.id}}
+        <span class="stype">Spring</span>
+        <span class="stype">Autumn</span>
+      </h3>
+      <h4>{{course.name}}</h4>
+      <i class="material-icons red">favorite</i>
+      <i class="material-icons red">favorite</i>
+      <i class="material-icons">favorite</i>
+      <i class="material-icons">favorite</i>
+      <i class="material-icons">favorite</i>
+      <div align="justify">
+        <b>Syllabus</b><br>{{course.syllabus}}</h6>
+      </div><br>
+      <div><b>Credits</b><br>{{course.credits}}</div><br>
+      <div><b>Pre-Requisites</b><br>
+        <div id="prereq"></div>
+      </div>
+      <script type="text/javascript">
+        var prereq = {
+          {
+            course.prereq | safe
+          }
+        }
+        var mydiv = document.getElementById("prereq");
+        for (code in prereq) {
+          var aTag = document.createElement('a');
+          aTag.setAttribute('href', "/courses/" + prereq[code]);
+          aTag.setAttribute('class', 'prereq')
+          aTag.innerHTML = prereq[code];
+          mydiv.appendChild(aTag);
+        };
+      </script>
+    </div>
+    <div class="demo-content mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--5-col">
+      <h4>GRADE DISTRIBUTION</h4>
+      <a href="/courses/compare">COMPARE</a>
+      <div class="gGraph"></div>
+    </div>
+    <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+    <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+    <div class="demo-content mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--10-col">
+      <h4> Course Reviews</h4>
+      <h5>Arun Patro, Dual, EE'18</h5>
+      <i class="material-icons red">favorite</i>
+      <i class="material-icons red">favorite</i>
+      <i class="material-icons">favorite</i>
+      <i class="material-icons">favorite</i>
+      <i class="material-icons">favorite</i>
+      <p>While visibly they were at a distance, you need to understand that there was an active underflow between</p>
+      <span layout="row"><hr flex/></span>
+      <h5>Srihari Radhakrishna, Dual, EE'18</h5>
+      <i class="material-icons red">favorite</i>
+      <i class="material-icons red">favorite</i>
+      <i class="material-icons red">favorite</i>
+      <i class="material-icons">favorite</i>
+      <i class="material-icons">favorite</i>
+      <span layout="row"><hr flex/></span>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+    Add Review
+    </button>
+    </div>
+    <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+  </div>
 </main>
-
 <script>
-// set the dimensions of the canvas
-var margin = {top: 20, right: 20, bottom: 70, left: 40},
+  // set the dimensions of the canvas
+  var margin = {
+      top: 20,
+      right: 20,
+      bottom: 70,
+      left: 40
+    },
     width = 400 - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom;
-
-
-// set the ranges
-var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
-
-var y = d3.scale.linear().range([height, 0]);
-
-// define the axis
-var xAxis = d3.svg.axis()
+  // set the ranges
+  var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
+  var y = d3.scale.linear().range([height, 0]);
+  // define the axis
+  var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom")
-
-
-var yAxis = d3.svg.axis()
+  var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
     .ticks(5);
-
-
-// add the SVG element
-var svg = d3.select(".gGraph").append("svg")
+  // add the SVG element
+  var svg = d3.select(".gGraph").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-  .append("g")
+    .append("g")
     .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
-
-  var grades = {{course.grades|safe}}
+      "translate(" + margin.left + "," + margin.top + ")");
+  var grades = {
+    {
+      course.grades | safe
+    }
+  }
   // scale the range of the data
-	diff = ["EX","A","B","C","D","F"]
+  diff = ["EX", "A", "B", "C", "D", "F"]
   x.domain(diff);
-  y.domain([0, d3.max(diff, function(d) { console.log(grades[d]); return grades[d]; })]);
-
+  y.domain([0, d3.max(diff, function(d) {
+    console.log(grades[d]);
+    return grades[d];
+  })]);
   // add axis
   svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
-
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
   svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis);
-
+    .attr("class", "y axis")
+    .call(yAxis);
   // Add bar chart
   svg.selectAll("bar")
-      .data(diff)
+    .data(diff)
     .enter().append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d) { return x(d); })
-      .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(grades[d]); })
-      .attr("height", function(d) { return height - y(grades[d]); });
+    .attr("class", "bar")
+    .attr("x", function(d) {
+      return x(d);
+    })
+    .attr("width", x.rangeBand())
+    .attr("y", function(d) {
+      return y(grades[d]);
+    })
+    .attr("height", function(d) {
+      return height - y(grades[d]);
+    });
 </script>
-
 {%endblock%}
