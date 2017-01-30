@@ -5,9 +5,13 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
 <main class="demo-main mdl-layout__content">
+
 <div class="demo-container mdl-grid">
-<div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+<div style="display:flex;justify-content:center;align-items:center;" class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"><a href={{course.id}}/edit id = "edit" class="button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+  <i class="material-icons">edit</i>
+</a></div>
 <div class="demo-content mdl-color--white  content mdl-color-text--grey-800 mdl-cell mdl-cell--5-col">
+
   <h3>{{course.id}}<span class="stype">Spring</span><span class="stype">Autumn</span></h3>
   <h4> {{course.name}}</h4>
   <i class="material-icons red">favorite</i>
