@@ -1,0 +1,15 @@
+{%extends "basic_header.html"%}
+{%block pagebody%}
+<span id="unavail">
+  <p align="center">The edited content will be added once it's verified by atleast 3 members.</p>
+  <form action="action_page.php" method="post">
+    Course code:<br>
+    <input type="text" value={{course.id}}><br><br>
+    Course name:<br>
+    <textarea name='name'>{{course.name}}</textarea><br><br>
+    Syllabus:<br>
+    <textarea width="90%"" name="syllabus" >{{course.syllabus}}</textarea><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</span>
+{%endblock%}
