@@ -3,12 +3,8 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <main class="demo-main mdl-layout__content">
   <div class="demo-container mdl-grid">
-    <div style="display:flex;justify-content:center;align-items:center;" class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone">
-      <a href={{course.id}}/edit id="edit" class="button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-        <i class="material-icons">edit</i>
-      </a>
-    </div>
-    <div class="demo-content mdl-color--white  content mdl-color-text--grey-800 mdl-cell mdl-cell--5-col">
+    <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+    <div class="demo-content mdl-color--white  content mdl-color-text--grey-800 mdl-cell mdl-cell--6-col">
       <h3>{{course.id}}
         <span class="stype">Spring</span>
         <span class="stype">Autumn</span>
@@ -42,36 +38,49 @@
         };
       </script>
     </div>
-    <div class="demo-content mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--5-col">
+    <div class="demo-content mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--4-col">
       <h4>GRADE DISTRIBUTION</h4>
       <a href="/courses/compare">COMPARE</a>
       <div class="gGraph"></div>
     </div>
     <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
     <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-    <div class="demo-content mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--10-col">
-      <h4> Course Reviews</h4>
-      <h5>Arun Patro, Dual, EE'18</h5>
-      <i class="material-icons red">favorite</i>
-      <i class="material-icons red">favorite</i>
-      <i class="material-icons">favorite</i>
-      <i class="material-icons">favorite</i>
-      <i class="material-icons">favorite</i>
-      <p>While visibly they were at a distance, you need to understand that there was an active underflow between</p>
-      <span layout="row"><hr flex/></span>
-      <h5>Srihari Radhakrishna, Dual, EE'18</h5>
-      <i class="material-icons red">favorite</i>
-      <i class="material-icons red">favorite</i>
-      <i class="material-icons red">favorite</i>
-      <i class="material-icons">favorite</i>
-      <i class="material-icons">favorite</i>
-      <span layout="row"><hr flex/></span>
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-    Add Review
-    </button>
+    <div class="mdl-shadow--4dp demo-content mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--10-col" style="padding: 0">
+      <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="width: 100%">
+        <div class="mdl-card__title">
+          <h2 class="mdl-card__title-text">Arun Patro</h2>
+        </div>
+        <div class="mdl-card__supporting-text" style="padding-top: 0">
+          I am the lord above.
+        </div>
+        <hr style="margin: 0" />
+        <div class="mdl-card__title">
+          <h2 class="mdl-card__title-text">Srihari</h2>
+        </div>
+        <div class="mdl-card__supporting-text" style="padding-top: 0">
+          I am the douche below.
+        </div>
+        <hr style="margin: 0" />
+        <div class="mdl-card__actions" style="padding: 0px">
+          <form action="/courses/add_review" style="padding: 0 16px" method="post" id="form1">
+            <div class="mdl-textfield mdl-js-textfield" style="width: 100%">
+              <textarea class="mdl-textfield__input" type="text" name="comment_text"></textarea>
+              <label class="mdl-textfield__label" for="sample5">Add a review...</label>
+            </div>
+          </form>
+        </div>
+        <div class="mdl-card__actions">
+          <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" type="submit" form="form1" value="Submit">Submit</button>
+        </div>
+      </div>
     </div>
     <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
   </div>
+  <span style="position: fixed;bottom: 30px;right: 30px">
+  <a href={{course.id}}/edit id="edit" class="button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+    <i class="material-icons">edit</i>
+  </a>
+</span>
 </main>
 <script>
   // set the dimensions of the canvas
@@ -81,8 +90,8 @@
       bottom: 70,
       left: 40
     },
-    width = 400 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+    width = 300 - margin.left - margin.right,
+    height = 250 - margin.top - margin.bottom;
   // set the ranges
   var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
   var y = d3.scale.linear().range([height, 0]);
