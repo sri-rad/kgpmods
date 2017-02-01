@@ -171,3 +171,7 @@
   color: black;
   padding: 10px;
 }
+
+.mdl-textfield__label:after {
+  background-color: #f44336
+}
