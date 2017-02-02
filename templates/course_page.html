@@ -4,44 +4,48 @@
 <main class="demo-main mdl-layout__content">
   <div class="demo-container mdl-grid">
     <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-    <div class="demo-content mdl-color--white  content mdl-color-text--grey-800 mdl-cell mdl-cell--7-col" style="padding: 20px 10px">
-      <h3>{{course.id}}
-        <span class="stype">Spring</span>
-        <span class="stype">Autumn</span>
-      </h3>
-      <h4>{{course.name}}</h4>
-      <i class="material-icons red">favorite</i>
-      <i class="material-icons red">favorite</i>
-      <i class="material-icons">favorite</i>
-      <i class="material-icons">favorite</i>
-      <i class="material-icons">favorite</i>
-      <div align="justify">
-        <b>Syllabus</b><br>{{course.syllabus}}</h6>
-      </div><br>
-      <div><b>Credits</b><br>{{course.credits}}</div><br>
-      <div><b>Pre-Requisites</b><br>
-        <div id="prereq"></div>
-      </div>
-      <script type="text/javascript">
-        var prereq = {
-          {
-            course.prereq | safe
+    <div class="mdl-shadow--4dp demo-content mdl-color--white  content mdl-color-text--grey-800 mdl-cell mdl-cell--7-col" style="padding: 0px">
+      <div style="margin: 16px">
+        <h3>{{course.id}}
+          <span class="stype">Spring</span>
+          <span class="stype">Autumn</span>
+        </h3>
+        <h4>{{course.name}}</h4>
+        <i class="material-icons red">favorite</i>
+        <i class="material-icons red">favorite</i>
+        <i class="material-icons">favorite</i>
+        <i class="material-icons">favorite</i>
+        <i class="material-icons">favorite</i>
+        <div align="justify">
+          <b>Syllabus</b><br>{{course.syllabus}}</h6>
+        </div><br>
+        <div><b>Credits</b><br>{{course.credits}}</div><br>
+        <div><b>Pre-Requisites</b><br>
+          <div id="prereq"></div>
+        </div>
+        <script type="text/javascript">
+          var prereq = {
+            {
+              course.prereq | safe
+            }
           }
-        }
-        var mydiv = document.getElementById("prereq");
-        for (code in prereq) {
-          var aTag = document.createElement('a');
-          aTag.setAttribute('href', "/courses/" + prereq[code]);
-          aTag.setAttribute('class', 'prereq')
-          aTag.innerHTML = prereq[code];
-          mydiv.appendChild(aTag);
-        };
-      </script>
+          var mydiv = document.getElementById("prereq");
+          for (code in prereq) {
+            var aTag = document.createElement('a');
+            aTag.setAttribute('href', "/courses/" + prereq[code]);
+            aTag.setAttribute('class', 'prereq')
+            aTag.innerHTML = prereq[code];
+            mydiv.appendChild(aTag);
+          };
+        </script>
+      </div>
     </div>
-    <div class="demo-content mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--3-col" style="padding: 20px 10px">
-      <h3>GRADES</h3>
-      <a href="/courses/compare">COMPARE</a>
-      <div class="gGraph"></div>
+    <div class="mdl-shadow--4dp demo-content mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--3-col" style="padding: 0px">
+      <div style="margin: 16px">
+        <h3>GRADES</h3>
+        <a href="/courses/compare">COMPARE</a>
+        <div class="gGraph"></div>
+      </div>
     </div>
     <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
     <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
@@ -49,6 +53,9 @@
       <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="width: 100%">
         <div class="mdl-card__title">
           <h2 class="mdl-card__title-text">Arun Patro</h2>
+          <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" style="position: absolute;right: 16px">
+          <i class="material-icons">thumb_up</i>
+          </button>
         </div>
         <div class="mdl-card__supporting-text" style="padding-top: 0">
           I am the lord above.
@@ -56,6 +63,9 @@
         <hr style="margin: 0" />
         <div class="mdl-card__title">
           <h2 class="mdl-card__title-text">Srihari</h2>
+          <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" style="position: absolute;right: 16px">
+          <i class="material-icons">thumb_up</i>
+          </button>
         </div>
         <div class="mdl-card__supporting-text" style="padding-top: 0">
           I am the douche below.
@@ -77,10 +87,10 @@
     <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
   </div>
   <span style="position: fixed;bottom: 30px;right: 30px">
-  <a href={{course.id}}/edit id="edit" class="button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-    <i class="material-icons">edit</i>
-  </a>
-</span>
+    <a href={{course.id}}/edit id="edit" class="button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+      <i class="material-icons">edit</i>
+    </a>
+  </span>
 </main>
 <script>
   // set the dimensions of the canvas
@@ -90,6 +100,7 @@
       bottom: 70,
       left: 40
     },
+  a = document.getElementsByClassName('gGraph')[0].clientWidth;
     width = 300 - margin.left - margin.right,
     height = 250 - margin.top - margin.bottom;
   // set the ranges
