@@ -97,11 +97,21 @@
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">Resources</span>
+          <div class="mdl-layout-spacer"></div>
+          <button id="more" class="mdl-button mdl-js-button mdl-button--icon" style="float: right;">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="more">
+            <li class="mdl-menu__item">Add Book</li>
+            <li class="mdl-menu__item">Add a MOOC</li>
+            <li disabled class="mdl-menu__item">Disabled Action</li>
+            <li class="mdl-menu__item">Add other</li>
+          </ul>
         </div>
       </header>
       <div id="book">
         <div style="padding:10px;float: left;text-align: center;">
-          <img src="/static/img.jpg" alt="My image" />
+          <img src="/static/ssp.jpg" alt="My image" />
         </div>
         <div class="mdl-card" style="width: auto;">
           <div class="mdl-card__title">
@@ -111,7 +121,23 @@
             Steven M. Kay
           </div>
           <div class="mdl-card__supporting-text">
-            ISBN-13: 9780133457117
+            ISBN: 9780133457117
+          </div>
+        </div>
+      </div>
+      <div id="book">
+        <div style="padding:10px;float: left;text-align: center;">
+          <img src="/static/drives.jpg" alt="My image" />
+        </div>
+        <div class="mdl-card" style="width: auto;">
+          <div class="mdl-card__title">
+            <div class="mdl-card__title-text">Electric Motor Drives: Modeling, Analysis, and Control</div>
+          </div>
+          <div class="mdl-card__supporting-text">
+            Ramu Krishnan
+          </div>
+          <div class="mdl-card__supporting-text">
+            ISBN: 9780130910141
           </div>
         </div>
       </div>
