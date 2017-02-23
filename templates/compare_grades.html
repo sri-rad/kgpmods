@@ -1,5 +1,4 @@
-{%extends "basic_header.html"%}
-{%block pagebody%}
+{%extends "basic_header.html"%} {%block pagebody%}
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <main class="demo-main mdl-layout__content">
   <div class="demo-container mdl-grid">
@@ -44,8 +43,10 @@
     .append("g")
     .attr("transform",
       "translate(" + margin.left + "," + margin.top + ")");
+  /* beautify preserve:start */
   var grades = {{grades1 | safe}}
-  // scale the range of the data
+ /* beautify preserve:end */
+    // scale the range of the data
   diff = ["EX", "A", "B", "C", "D", "P", "F"]
   x.domain(diff);
   y.domain([0, d3.max(diff, function(d) {
@@ -81,8 +82,10 @@
     .append("g")
     .attr("transform",
       "translate(" + margin.left + "," + margin.top + ")");
+  /* beautify preserve:start */
   grades = {{grades1 | safe}}
-  // scale the range of the data
+  /* beautify preserve:end */
+    // scale the range of the data
   x.domain(diff);
   y.domain([0, d3.max(diff, function(d) {
     console.log(grades[d]);

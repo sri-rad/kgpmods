@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
- .material-icons.red { color: red; }
+.material-icons.red {
+  color: red;
+}
 
 .demo-ribbon {
   width: 100%;
@@ -62,16 +64,17 @@
   font-size: 13px;
 }
 
-.bar{
-  fill: steelblue;
+.bar {
+  fill: orange;
 }
 
-.bar:hover{
-  fill: brown;
+.bar:hover {
+  fill: orangered;
 }
 
-.axd.Letter = d.Letter;
-      d.Freq = +d.Freq;isis {
+.axd.Letter=d.Letter;
+d.Freq=+d.Freq;
+isis {
   font: 10px sans-serif;
 }
 
@@ -115,7 +118,7 @@
 }
 
 .prereq:hover {
-  text-decoration:  none;
+  text-decoration: none;
   background-color: white;
   color: #f44336;
   cursor: hand;
@@ -123,7 +126,7 @@
 
 #unavail {
   position: absolute;
-  top:0;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
@@ -140,38 +143,18 @@
   padding: 10px;
 }
 
-.courseBlock {
-  background-color: #ffffff;
-  box-shadow:0 2px 2px rgba(0,0,0,.1);
-  box-sizing: border-box;
-  width: 150px;
-  height: 150px;
+.mdl-textfield__label:after {
+  background-color: #f44336
+}
+
+.coursebox {
   margin: 20px;
+  height: 200px;
+  width: 200px;
   display: inline-block;
 }
 
-.courseRating {
-  height: 20%;
-  border-width: 2px;
-  border-bottom: 1px black solid;
-}
-.courseData {
-  height: 80%;
-}
-
-.courseID {
-    font-size: 18px;
-    color: #f44336;
-    line-height: 2em;
-    padding: 10px
-}
-
-.courseName {
-  font-size: 14px;
-  color: black;
-  padding: 10px;
-}
-
-.mdl-textfield__label:after {
-  background-color: #f44336
+#maincontainer {
+  background-color: #d3d3d3;
+  text-align: center;
 }
