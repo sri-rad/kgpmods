@@ -158,3 +158,8 @@ isis {
   background-color: #d3d3d3;
   text-align: center;
 }
+
+#resources img {
+  height: 180px;
+  width: 180px
+}
