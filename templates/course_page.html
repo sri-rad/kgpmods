@@ -25,20 +25,17 @@
         <br>
         <div><b>Pre-Requisites</b>
           <br>
-          <div id="prereq"></div>
+          <div id='pContainer' style="padding: 10px 0">
+            <div id="prereq"></div>
+          </div>
         </div>
         <script type="text/javascript">
           /* beautify preserve:start */
           var prereq = {{course.prereq | safe}}
             /* beautify preserve:end */
-          var mydiv = document.getElementById("prereq");
           for (code in prereq) {
-            var aTag = document.createElement('a');
-            aTag.setAttribute('href', "/courses/" + prereq[code]);
-            aTag.setAttribute('class', 'prereq')
-            aTag.innerHTML = prereq[code];
-            mydiv.appendChild(aTag);
-          };
+            $('#prereq').append("<a class='prereq' href=\"/courses/" + prereq[code] + "\">" + prereq[code] + "</a>")
+          }
         </script>
       </div>
     </div>
