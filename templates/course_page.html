@@ -29,10 +29,48 @@
             <div id="prereq"></div>
           </div>
         </div>
+        <div>
+          <b>Resources</b>
+          <table style="width: 100%">
+            <tr>
+              <td>
+                <span class="mdl-chip">
+                  <span class="mdl-chip__text">
+                    BOOK
+                  </span>
+                </span>
+              </td>
+              <td>Fundamentals of Statistical Signal Processing: Estimation theory</td>
+              <td>Steven M. Kay</td>
+            </tr>
+            <tr>
+              <td>
+                <span class="mdl-chip">
+                  <span class="mdl-chip__text">
+                    BOOK
+                  </span>
+                </span>
+              </td>
+              <td>Electric Motor Drives: Modeling, Analysis, and Control</td>
+              <td>Ramu Krishnan</td>
+            </tr>
+            <tr>
+              <td>
+                <span class="mdl-chip">
+                  <span class="mdl-chip__text">
+                    NPTEL
+                  </span>
+                </span>
+              </td>
+              <td>Advanced Electric Drives</td>
+              <td>IIT Kanpur</td>
+            </tr>
+          </table>
+        </div>
         <script type="text/javascript">
           /* beautify preserve:start */
           var prereq = {{course.prereq | safe}}
-            /* beautify preserve:end */
+          /* beautify preserve:end */
           for (code in prereq) {
             $('#prereq').append("<a class='prereq' href=\"/courses/" + prereq[code] + "\">" + prereq[code] + "</a>")
           }
@@ -48,7 +86,7 @@
     </div>
     <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
     <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-    <div class="mdl-shadow--2dp demo-content mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--10-col" style="padding: 0">
+    <div id='reviews' class="mdl-shadow--2dp demo-content mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--10-col" style="padding: 0">
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">Reviews</span>
