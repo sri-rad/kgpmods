@@ -10,11 +10,18 @@
           <span class="stype">Autumn</span>
         </h3>
         <h4>{{course.name}}</h4>
-        <i class="material-icons red">favorite</i>
-        <i class="material-icons red">favorite</i>
-        <i class="material-icons">favorite</i>
-        <i class="material-icons">favorite</i>
-        <i class="material-icons">favorite</i>
+        <div id="rating"></div>
+        <script>
+          /* beautify preserve:start */
+          var rating = {{course.rating | safe}}
+          /* beautify preserve:end */
+          for (var i = 0; i < rating; i++) {
+            $('#rating').append('<i class="material-icons">star</i>')
+          }
+          for (var i = 0; i < (5 - rating); i++) {
+            $('#rating').append('<i class="material-icons">star_border</i>')
+          }
+        </script>
         <div align="justify">
           <b>Syllabus</b>
           <br>{{course.syllabus}}</h6>

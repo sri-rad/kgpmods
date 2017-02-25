@@ -163,3 +163,8 @@ isis {
   height: 180px;
   width: 180px
 }
+
+#rating {
+  padding: 5px 0;
+  display: table;
+}
