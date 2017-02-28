@@ -214,7 +214,18 @@
   /* beautify preserve:start */
   var data = {{course.grades | safe}}
   /* beautify preserve:end */
+  var temp = Object.keys(data).map(function(key) {
+    return {
+      x: key,
+      y: data[key]
+    };
+  });
   var ops = ['EX', 'A', 'B', 'C', 'D', 'P', 'F']
+  var grades = new Array(ops.length);
+  temp.forEach(function(point) {
+    var sortedIndex = ops.indexOf(point.x);
+    grades[sortedIndex] = point;
+  });
   var xScale = new Plottable.Scales.Category()
   var yScale = new Plottable.Scales.Linear();
 
@@ -222,23 +233,23 @@
   var yAxis = new Plottable.Axes.Numeric(yScale, "left");
 
   var plot = new Plottable.Plots.Bar()
-    .addDataset(new Plottable.Dataset(ops))
+    .addDataset(new Plottable.Dataset(grades))
     .x(function(d) {
-      return d;
+      return d.x;
     }, xScale)
     .y(function(d) {
-      return data[d];
+      return d.y;
     }, yScale)
     .animated(true)
+    .labelsEnabled(true)
     .renderTo("svg#example");
 
   window.addEventListener("resize", function() {
     chart.redraw();
   });
-  plot.labelsEnabled(true)
 
   var chart = new Plottable.Components.Table([
-    [null, plot],
+    [yAxis, plot],
     [null, xAxis]
   ]);
 
