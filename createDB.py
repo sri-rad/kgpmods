@@ -18,4 +18,4 @@ courses = load('courses.json')
 
 for i in courses:
     item = courses[i]
-    c = Course.objects.create(id=item['id'], name=item['name'], grades=item['grades'], prereq=item['prereq'],credits=int(item['credits']),rating=item['rating'],syllabus=item['syllabus'])
+    c = Course.objects.create(id=item['id'], name=item['name'], grades=item['grades'], prereq=item['prereq'],credits=item['credits'],rating=item['rating'],syllabus=item['syllabus'])
