@@ -3,18 +3,17 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 import json
 import os
 import re
-import simplejson
+from django.http import JsonResponse
+from courses.models import Course
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+course_data = json.loads(open(os.path.join(BASE_DIR, 'courses.json'),'r').read())
 
 def index(request, course_id):
-    course_data = json.loads(open(os.path.join(BASE_DIR, 'courses.json'),'r').read())
     try:
-        course = course_data[course_id]
+        course = Course.objects.get(id=course_id)
     except KeyError as e:
         return HttpResponse(render(request, 'course_unavailable.html', context = {'id': course_id}))
-    course['grades'] = str(json.dumps(course['grades']))
-    course['prereq'] = simplejson.dumps(course['prereq'])
     return HttpResponse(render(request, 'course_page.html', context = {'course': course}))
 
 def search(request):
@@ -36,3 +35,6 @@ def edit(request,course_id):
     course_data = json.loads(open(os.path.join(BASE_DIR, 'courses.json'),'r').read())
     course = course_data[course_id]
     return HttpResponse(render(request, 'course_edit.html', context = {'course': course}))
+
+def json(request,course_id):
+    return JsonResponse(course_data[course_id])
